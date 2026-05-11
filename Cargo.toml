@@ -1,0 +1,43 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/g1-msm-ref",
+    "crates/fr-batch-inv-ref",
+    "programs/g1-msm-bench",
+]
+
+[workspace.package]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+rust-version = "1.85"
+
+[workspace.dependencies]
+# arkworks
+ark-bn254       = { version = "0.5", default-features = false, features = ["curve"] }
+ark-ff          = { version = "0.5", default-features = false }
+ark-ec          = { version = "0.5", default-features = false }
+ark-serialize   = { version = "0.5", default-features = false }
+ark-std         = { version = "0.5", default-features = false }
+
+# Solana 4.x
+solana-program  = "4"
+solana-bn254    = "3"
+
+# Pinocchio (BPF program framework)
+pinocchio       = "0.11"
+
+# Test infra
+mollusk-svm = "0.12"
+
+hex             = { version = "0.4", default-features = false, features = ["alloc"] }
+thiserror       = "1"
+
+[profile.release]
+overflow-checks = true
+lto             = "thin"
+codegen-units   = 1
+
+[profile.release-bpf]
+inherits        = "release"
+opt-level       = 3
+overflow-checks = false
