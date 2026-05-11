@@ -1,10 +1,16 @@
 [package]
-name        = "fr-batch-inv-ref"
+name        = "alt-bn128-fr-batch-inv-ref"
 version     = "0.1.0"
-description = "Reference implementation: BN254 Fr batch-inverse via Montgomery's trick (SIMD-XXXX-alt-bn128-fr-batch-inverse)"
+description = "Reference implementation of alt_bn128_fr_batch_inverse (BN254 scalar field Montgomery batch inverse) for the Solana SIMD-XXXX proposal. no_std-compatible."
 edition.workspace      = true
 license.workspace      = true
 rust-version.workspace = true
+repository    = "https://github.com/Sol-0z/alt-bn128-extras"
+homepage      = "https://github.com/Sol-0z/alt-bn128-extras"
+documentation = "https://docs.rs/alt-bn128-fr-batch-inv-ref"
+readme        = "../../README.md"
+keywords      = ["solana", "bn254", "batch-inverse", "montgomery", "cryptography"]
+categories    = ["cryptography", "no-std"]
 
 [lib]
 name = "fr_batch_inv_ref"
